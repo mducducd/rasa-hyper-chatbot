@@ -3,6 +3,9 @@ session_config:
   session_expiration_time: 20
   carry_over_slots_to_new_session: false
 intents:
+- ask_bank_name
+- scold
+- cust_give_name_all
 - cust_give_number
 - ask_phone_number
 - ask_address
@@ -11,7 +14,6 @@ intents:
 - create_account
 - ask_service_name:
     use_entities: []
-- cust_give_name_all
 - cust_give_account_number_all
 - cust_give_cmnd_all
 - stop:
@@ -26,20 +28,16 @@ intents:
 - affirm
 - greet
 - goodbye
-- mood_great
-- mood_unhappy
-- bot_challenge
-- hello_word
 - out_of_scope
 - transfer_to_account
 - affirm_has_account
 - does_not_have_account
 - ask_time
-- thankyou
+- thanks
 - ask_bot_name
 - cust_give_others_person_name
 - cust_give_cust_transfer_account_money
-- cust_ending
+- chitchat
 entities:
 - account
 - cmnd
@@ -138,7 +136,7 @@ slots:
     influence_conversation: false
 responses:
   utter_greet:
-  - text: Xin chào quý khách.Bên em có thể giúp gì cho quý khách ạ?
+  - text: Xin chào quý khách. Bên em có thể giúp gì cho quý khách ạ?
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -155,21 +153,19 @@ responses:
   utter_show_address:
   - text: Gửi quý khách địa chỉ chi nhánh Tầng 2 Trung Yên Plaza
   utter_ask_others_person_name:
-  - text: Tên của chủ tài khoản là gì ạ ?
+  - text: Tên của chủ tài khoản là gì ạ? Quý khách vui lòng nhập đủ họ tên viết hoa có dấu.
   utter_ask_others_person_cmnd:
-  - text: Số cmnd của chủ tài khoản là gì ạ ?
+  - text: Số cmnd của chủ tài khoản là gì ạ?
   utter_ask_cust_account_number:
-  - text: Số tài khoản của chủ tài khoản là gì ạ ?
+  - text: Số tài khoản của chủ tài khoản là gì ạ?
   utter_ask_cust_cmnd:
-  - text: số cmnd của chủ tài khoản là gì ạ ?
-  utter_ask_name:
-  - text: Tên của chủ tài khoản là gì ạ ?
+  - text: số cmnd của chủ tài khoản là gì ạ?
+  utter_ask_account_name:
+  - text: Tên của chủ tài khoản là gì ạ?
   utter_ask_cmnd:
-  - text: Số cmnd của chủ tài khoản là gì ạ ?
-  utter_ask_cust_name:
-  - text: Tên của chủ tài khoản là gì ạ ?
+  - text: Số cmnd của chủ tài khoản là gì ạ?
   utter_ask_cust_transfer_account_number:
-  - text: số tài khoản của người chuyển khoản cho là gì ạ ?
+  - text: số tài khoản của người chuyển khoản cho là gì ạ?
   utter_fallback:
   - text: xin lỗi {cust_sex}.{cust_sex} có thể đặt lại câu hỏi khác được không ạ.
   utter_submit:
@@ -177,7 +173,7 @@ responses:
   utter_cust_stop_create_account:
   - text: '{cust_sex} đã dừng lập tài khoản.'
   utter_give_account_info:
-  - text: 'Tên chủ tài khoản là {cust_name}.Số CMND : {cust_cmnd} '
+  - text: 'Tên chủ tài khoản là {cust_name}. Số CMND: {cust_cmnd} '
   utter_ask_cust_loan_number:
   - text: '{cust_sex} muốn vay bao nhiêu tiền ạ.'
   utter_ask_if_cust_has_account:
@@ -191,9 +187,9 @@ responses:
   - text: '{cust_sex} muốn làm gì tiếp ạ.'
   utter_ask_if_cust_want_to_sign_in:
   - buttons:
-    - payload: /cust_sign_in
+    - payload: '/cust_sign_in'
       title: '{cust_sex} muốn đăng nhập tài khoản'
-    - payload: /deny
+    - payload: '/deny'
       title: Không
     text: '{cust_sex} cần đăng nhập tài khoản để thực hiện dịch vụ này. {cust_sex} có muốn đăng nhập tài khoản ko ạ.'
   utter_ask_cust_transfer_account_money:
@@ -204,20 +200,20 @@ responses:
       title: '{cust_sex} muốn nhập lại thông tin tài khoản'
     - payload: /deny
       title: Không
-    text: Tài khoản này không tồn tại. {cust_sex} có muốn nhập lại thông tin tài khoản ko ạ
+    text: Tài khoản này không tồn tại. {cust_sex} có muốn nhập lại thông tin tài khoản không ạ
   utter_cust_sign_in_false:
   - buttons:
     - payload: /cust_sign_in
       title: '{cust_sex} muốn đăng nhập tài khoản'
     - payload: /deny
       title: Không
-    text: '{cust_sex} đã nhập sai tài khoản.Quý khách có muốn đăng nhập lại ko ạ'
+    text: '{cust_sex} đã nhập sai tài khoản. Quý khách có muốn đăng nhập lại ko ạ'
   utter_cust_sign_in_success:
   - text: '{cust_sex} đã đăng nhập thành công.'
-  utter_out_of_scope:
+  utter_chitchat:
   - text: xin lỗi {cust_sex}.{cust_sex} có thể đặt lại câu hỏi liên quan đến dịch vụ được ko ạ.
   utter_out_of_form:
-  - text: xin lỗi {cust_sex}.{cust_sex} có thể trả lời câu hỏi của form được ko ạ.
+  - text: xin lỗi {cust_sex}.{cust_sex} có thể trả lời câu hỏi được ko ạ.
   utter_feedback_time:
   - text: bây giờ là {time}.
   utter_ask_cust_to_verify_others_person_account:
@@ -226,14 +222,14 @@ responses:
       title: Có
     - payload: /deny
       title: Không
-    text: 'Mời xác nhận thông tin chủ tài khoản. \n Tên : {name} \n Số cmnd : {cmnd} \n {cust_sex} có muốn tiếp tục không ?'
+    text: 'Mời xác nhận thông tin chủ tài khoản. Tên: {name}. Số CMND: {cmnd}. {cust_sex} có muốn tiếp tục không?'
   utter_ask_cust_to_verify_account:
   - buttons:
     - payload: /affirm
       title: Có
     - payload: /deny
       title: Không
-    text: 'Mời xác nhận thông tin chủ tài khoản. \n Tên : {name} \n Số cmnd : {cmnd} \n {cust_sex} có muốn tiếp tục không ?'
+    text: 'Mời xác nhận thông tin chủ tài khoản. Tên: {name}. Số CMND: {cmnd}. {cust_sex} có muốn tiếp tục không?'
   utter_ask_if_cust_want_to_create_account_again:
   - buttons:
     - payload: /affirm
@@ -276,6 +272,7 @@ actions:
 - utter_cust_sign_in_false
 - utter_cust_sign_in_success
 - utter_cust_stop_create_account
+- utter_greet
 - utter_happy
 - utter_phone_number
 - utter_show_address

@@ -1,0 +1,451 @@
+version: "2.0"
+stories:
+# Xem số dư
+- story: check balance cust login
+  steps:
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: true
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: check balance cust not login
+  steps:
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_ask_if_cust_want_to_sign_in
+  - checkpoint: check_balance_if_cust_want_to_sign_in
+- story: check balance cust do not want to login
+  steps:
+  - checkpoint: check_balance_if_cust_want_to_sign_in
+  - intent: deny
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: check balance cust want to login and login true
+  steps:
+  - checkpoint: check_balance_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Lê Đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - cmnd: 976734190
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - cust_account_number: 1549
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: true
+  - action: utter_cust_sign_in_success
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: interactive_story_5
+  steps:
+  - intent: check_balance_account
+    entities:
+    - cust_sex: anh
+    - service_name: check số dư tài khoản
+  - slot_was_set:
+    - service_name: check số dư tài khoản
+  - slot_was_set:
+    - cust_sex: anh
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - cmnd: '123456654'
+  - slot_was_set:
+    - cmnd: '123456654'
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - cust_account_number: '9760'
+  - slot_was_set:
+    - cust_account_number: '9760'
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: true
+  - action: utter_cust_sign_in_success
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: interactive_story_6
+  steps:
+  - intent: check_balance_account
+    entities:
+    - service_name: check số dư tài khoản
+  - slot_was_set:
+    - service_name: check số dư tài khoản
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_cust_sign_in_false
+  - intent: deny
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: interactive_story_7
+  steps:
+  - intent: check_balance_account
+    entities:
+    - service_name: check số dư tài khoản
+  - slot_was_set:
+    - service_name: check số dư tài khoản
+  - action: action_check_login
+  - slot_was_set:
+    - login: login_false
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: 1114445556
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: 5723
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: true
+  - action: utter_cust_sign_in_success
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: check_balance_account
+    entities:
+    - service_name: check số dư tài khoản
+  - slot_was_set:
+    - service_name: check số dư tài khoản
+  - action: action_check_login
+  - slot_was_set:
+    - login: true
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else
+
+- story: Story from Conversation ID 8660d98d44fc4909955abb3d1f2afa38
+  steps:
+  - slot_was_set:
+    - cust_account_number: '6871'
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: stop
+  - action: utter_goodbye
+- story: Story from Conversation ID 0e80ea0f15884f0db2482971559cab19
+  steps:
+  - intent: cust_give_name_all
+    entities:
+    - name: lê đức thắng
+  - slot_was_set:
+    - name: lê đức thắng
+  - action: utter_greet
+- story: Story from Conversation ID f8728bbc17d840e0a89b28d8174a66a7
+  steps:
+  - intent: cust_give_account_number_all
+    entities:
+    - cust_account_number: '094352798'
+  - action: utter_greet
+- story: interactive_story_2
+  steps:
+  - intent: ask_service_name
+  - action: action_list_service_name
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: phan minh
+  - slot_was_set:
+    - name:
+      - nguyen
+      - phan minh
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - cmnd: '029248756'
+  - slot_was_set:
+    - cmnd: '029248756'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - cust_account_number: '1234'
+  - slot_was_set:
+    - cust_account_number: '1234'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - action: utter_cust_sign_in_false
+  - intent: deny
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: stop
+  - action: utter_happy
+- story: interactive_story_2
+  steps:
+  - intent: cust_give_cmnd_all
+    entities:
+    - cust_account_number: '123456789'
+  - action: utter_greet
+- story: interactive_story_3
+  steps:
+  - intent: ask_service_name
+  - action: action_list_service_name
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: nguyen minh duc
+  - slot_was_set:
+    - name: nguyen minh duc
+  - slot_was_set:
+    - requested_slot: cmnd
+  - intent: stop
+  - action: utter_cust_stop_create_account
+- story: interactive_story_1
+  steps:
+  - intent: check_balance_account
+    entities:
+    - service_name: xem số dư
+  - slot_was_set:
+    - service_name: xem số dư
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Nguyễn A
+  - slot_was_set:
+    - name: Nguyễn A
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '0000000001'
+  - slot_was_set:
+    - cmnd: null
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '000000001'
+  - slot_was_set:
+    - cmnd: '000000001'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '000000000001'
+  - slot_was_set:
+    - cust_account_number: '000000000001'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '023143678423'
+  - slot_was_set:
+    - cmnd: '023143678423'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '100000000004'
+  - slot_was_set:
+    - cust_account_number: '100000000004'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - cust_cmnd: '023143678423'
+  - slot_was_set:
+    - login: 'true'
+  - slot_was_set:
+    - cust_sex: Quý khách
+  - action: utter_cust_sign_in_success
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: stop
+  - action: utter_goodbye
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_service_name
+  - action: action_list_service_name
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Nguyen Minh Duc
+  - slot_was_set:
+    - name: Nguyen Minh Duc
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '000000000'
+  - slot_was_set:
+    - cmnd: '000000000'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '100000000002'
+  - slot_was_set:
+    - cust_account_number: '100000000002'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: Nguyen Minh Duc
+  - slot_was_set:
+    - cust_cmnd: '000000000'
+  - slot_was_set:
+    - login: 'true'
+  - slot_was_set:
+    - cust_sex: Quý khách
+  - action: utter_cust_sign_in_success
+  - action: action_check_balance
+  - action: utter_ask_if_cust_want_to_do_anything_else

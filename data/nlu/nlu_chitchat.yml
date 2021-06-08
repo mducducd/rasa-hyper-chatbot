@@ -1,0 +1,35 @@
+version: "2.0"
+nlu:
+- intent: chitchat
+  examples: |
+    - I want to order food
+    - 2 + 2 bằng bao nhiêu
+    - Who's the US President?
+    - em bao nhiểu tuổi
+    - mèo méo meo
+    - bạn có người yêu chưa
+    - bạn có bạn không
+    - có thích ai không
+    - bạn có yêu ai không
+    - bạn là nam hay nữ
+    - bạn giới tính là gì
+    - bạn thích nam hay nữ
+    - bạn là trai hay gái
+    - thích trai hay gái
+    - là nam hả
+    - là con trai hay con gái
+    - bạn là gái hả
+    - bạn là đàn ông hay phụ nữ
+    - bạn có phải là đàn ông không
+    - có phải là gay không
+    - bạn có phải là les không
+    - bạn có khỏe không
+    - dạo này bạn thế nào
+    - bạn biết hát không
+    - hát cho mình nghe đi
+    - đọc thơ đi bạn
+    - đọc thơ cho mình nghe
+    - bạn biết đọc thơ không
+    - hát đi bạn
+    - em có người yêu chưa
+    - em là gái à

@@ -2,20 +2,46 @@ version: "2.0"
 
 rules:
 
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_chitchat
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: happy anytime the user says thanks
+  steps:
+  - intent: thanks
+  - action: utter_happy
+
+- rule: Scold
+  steps:
+  - intent: scold
+  - action: utter_greet
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
-  - intent: bot_challenge
+  - intent: ask_bot_name
   - action: utter_iamabot
 
 - rule: out of scope
   steps:
-  - intent: out_of_scope
-  - action: utter_out_of_scope
+  - intent: chitchat
+  - action: utter_chitchat
+
+- rule: đợi khách hàng
+  steps:
+  - intent: wait
+  - action: utter_roger
+  - action: action_listen
+
+- rule: thanks
+  steps:
+  - intent: thanks
+  - action: utter_happy
 
 - rule: Trả lời số điện thoại ngân hàng
   steps:
@@ -111,7 +137,7 @@ rules:
   - active_loop: cust_create_account
   steps:
   # This unhappy path handles the case of an intent `out_of_scope`.
-  - intent: out_of_scope
+  - intent: chitchat
   - action: utter_out_of_form
   # Return to form after handling the `out_of_scope` intent
   - action: cust_create_account

@@ -1,0 +1,287 @@
+version: "2.0"
+stories:
+# Dịch vụ chuyển khoản
+- story: chuyển khoản cho kh đã đăng nhập
+  steps:
+  - intent: transfer_request
+  - action: action_check_login
+  - slot_was_set:
+    - login: true
+  - action: transfer
+  - action: transfer
+  - active_loop: transfer
+  - slot_was_set:
+      - requested_slot: receive_transfer_account_number
+  - slot_was_set:
+      - receive_transfer_account_number: 1000976734190
+  - slot_was_set:
+      - requested_slot: credit
+  - slot_was_set:
+      - credit: 10000000
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_cust_to_confirm_transfer
+  - action: action_transfer
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: yeu cau khách hàng login de ck
+  steps:
+  - intent: transfer_request
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_ask_if_cust_want_to_sign_in
+  - checkpoint: check_if_cust_want_to_login_for_transfering
+- story: khách hàng k đồng ý login để ck
+  steps:
+  - checkpoint: check_if_cust_want_to_login_for_transfering
+  - intent: deny
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story:  kh login va thuc hien ck
+  steps:
+  - checkpoint: check_if_cust_want_to_login_for_transfering
+  - intent: affirm
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Lê Đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - cmnd: 976734190
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - cust_account_number: 154932532523
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: true
+  - action: utter_cust_sign_in_success
+  - action: transfer
+  - active_loop: transfer
+  - slot_was_set:
+      - requested_slot: receive_transfer_account_number
+  - slot_was_set:
+      - receive_transfer_account_number: 1000976734190
+  - slot_was_set:
+      - requested_slot: credit
+  - slot_was_set:
+      - credit: 10000000
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_cust_to_confirm_transfer
+  - action: action_transfer
+  - action: utter_ask_if_cust_want_to_do_anything_else
+
+
+- story: interactive_story_1
+  steps:
+  - intent: transfer_request
+    entities:
+    - service_name: chuyển
+    - cust_sex: chị
+  - slot_was_set:
+    - service_name: chuyển
+  - slot_was_set:
+    - cust_sex: chị
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Lê Đức Thắng
+  - slot_was_set:
+    - name: Lê Đức Thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '001345867'
+  - slot_was_set:
+    - cmnd: '001345867'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '100000000000'
+  - slot_was_set:
+    - cust_account_number: '100000000000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: Lê Đức Thắng
+  - slot_was_set:
+    - cust_cmnd: '001345867'
+  - slot_was_set:
+    - login: 'true'
+  - slot_was_set:
+    - cust_sex: chị Thắng
+  - action: utter_cust_sign_in_success
+  - action: transfer
+  - active_loop: transfer
+  - slot_was_set:
+    - requested_slot: receive_transfer_account_number
+  - slot_was_set:
+    - number: '0123456789'
+  - slot_was_set:
+    - receive_transfer_account_number: '0123456789'
+  - slot_was_set:
+    - requested_slot: credit
+  - slot_was_set:
+    - number: '1000000'
+  - slot_was_set:
+    - credit: '1000000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_cust_to_confirm_transfer
+  - action: action_transfer
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: stop
+  - intent: stop
+  - action: utter_happy
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: transfer_request
+    entities:
+    - service_name: chuyển khoản
+  - slot_was_set:
+    - service_name: chuyển khoản
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Lê Đức Thắng
+  - slot_was_set:
+    - name: Lê Đức Thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '023143678423'
+  - slot_was_set:
+    - cmnd: '023143678423'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '100000000004'
+  - slot_was_set:
+    - cust_account_number: '100000000004'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: '023143678423'
+  - slot_was_set:
+    - cmnd: '023143678423'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: '100000000004'
+  - slot_was_set:
+    - cust_account_number: '100000000004'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: Hoàng Minh Hiếu
+  - slot_was_set:
+    - cust_cmnd: '023143678423'
+  - slot_was_set:
+    - login: 'true'
+  - slot_was_set:
+    - cust_sex: Quý khách
+  - action: utter_cust_sign_in_success
+  - action: transfer
+  - active_loop: transfer
+  - slot_was_set:
+    - requested_slot: receive_transfer_account_number
+  - slot_was_set:
+    - number: '00000000002'
+  - slot_was_set:
+    - receive_transfer_account_number: '00000000002'
+  - slot_was_set:
+    - requested_slot: credit
+  - slot_was_set:
+    - number: '100000000'
+  - slot_was_set:
+    - credit: '100000000'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_ask_cust_to_confirm_transfer
+  - action: action_transfer
+  - action: action_check_balance
+  - intent: stop
+  - action: utter_happy

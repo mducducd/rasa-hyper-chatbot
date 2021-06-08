@@ -12,6 +12,17 @@ def DataUpdate(cust_name,cust_cmnd,account_number):
     # ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
     # sql='INSERT INTO customers (name, cmnd, account_number,balance) VALUES ("{0}","{1}", "{2}","{3}");'.format(cust_name,cust_cmnd,account_number,balance)
     sql = 'DELETE FROM customers;'
+    sql = 'create table services(service VARCHAR(255));' \
+          'INSERT INTO services(service) VALUES("Đăng ký tài khoản");' \
+          'INSERT INTO services(service) VALUES("Xem số dư tài khoản");' \
+          'INSERT INTO services(service) VALUES("Xem số dư tài khoản");' \
+          'INSERT INTO services(service) VALUES("Chuyển khoản");' \
+          'CREATE TABLE accounts (name VARCHAR(255), cmnd VARCHAR(255) , account_number VARCHAR(255),balance INT, PRIMARY KEY(account_number));' \
+          '' \
+          '' \
+          ''
+
+
     mycursor.execute(sql)
     mydb.commit()
 

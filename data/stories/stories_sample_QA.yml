@@ -1,0 +1,22 @@
+version: "2.0"
+stories:
+- story: ask time
+  steps:
+  - intent: ask_time
+  - action: action_feedback_time
+- story: interactive_story_5
+  steps:
+  - intent: ask_phone_number
+  - action: utter_phone_number
+  - intent: ask_address
+  - action: utter_show_address
+- story: ask promotion
+  steps:
+  - intent: ask_promotion
+  - action: action_feedback_promotion
+- story: interactive_story_1
+  steps:
+  - intent: ask_time
+  - action: action_feedback_time
+  - intent: ask_promotion
+  - action: action_feedback_promotion

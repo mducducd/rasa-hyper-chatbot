@@ -1,0 +1,192 @@
+version: "2.0"
+nlu:
+- intent: create_account
+  examples: |
+    - [Chị](cust_sex) muốn [lập tài khoản](service_name)
+    - [Anh](cust_sex) muốn [lập tài khoản](service_name)
+    - Em muốn [lập tài khoản](service_name)
+    - mình muốn [lập tài khoản](service_name)
+    - [chú](cust_sex) muốn [lập tài khoản](service_name)
+    - [bác](cust_sex) muốn [lập tài khoản](service_name)
+    - [cô](cust_sex) muốn [lập tài khoản](service_name)
+    - tôi muốn [lập tài khoản](service_name)
+    - [Chị](cust_sex) muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - Anh muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - Em muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - mình muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - [chú](cust_sex) muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - [bác](cust_sex) muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - [cô](cust_sex) muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - tôi muốn [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - [anh](cust_sex) muốn [lập tài khoản](service_name)
+    - [anh](cust_sex) muốn [lập tài khoane](service_name)
+    - a muốn [lập tài khoản](service_name)
+    - [lập acc](service_name)
+    - [tạo tài khoản]{"entity": "service_name", "value": "l\u1eadp t\u00e0i kho\u1ea3n"}
+    - [dang ky] tai khoan(service_name)
+    - [đăng ký](service_name)
+    - dang ky tai [khoan](service_name)
+    - dang ky
+    - đăng ký tài khoản
+    - tạo cho tôi tài khoản
+- intent: check_balance_account
+  examples: |
+    - [Chị](cust_sex) muốn [check số dư tài khoản](service_name)
+    - [Anh](cust_sex) muốn [check số dư tài khoản](service_name)
+    - Em muốn [check số dư tài khoản](service_name)
+    - mình muốn [check số dư tài khoản](service_name)
+    - tôi muốn [check số dư tài khoản](service_name)
+    - [chú](cust_sex) muốn [check số dư tài khoản](service_name)
+    - [bác](cust_sex) muốn [check số dư tài khoản](service_name)
+    - [cô](cust_sex) muốn [check số dư tài khoản](service_name)
+    - [Chị](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [Anh](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [Em](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - mình muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - tôi muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [chú](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [bác](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [cô](cust_sex) muốn [kiểm tra số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [Chị](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [Anh](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [Em](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - mình muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - tôi muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [chú](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [bác](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [cô](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [anh](cust_sex) muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [anh](cust_sex) muốn [check số dư tài khoản](service_name)
+    - A muốn [xem số dư tài khoản]{"entity": "service_name", "value": "check s\u1ed1 d\u01b0 t\u00e0i kho\u1ea3n"}
+    - [xem số dư](service_name)
+- intent: transfer_request
+  examples: |
+    - [Chị](cust_sex) muốn [chuyển khoản](service_name)
+    - [Anh](cust_sex) muốn [chuyển khoản](service_name)
+    - [Em](cust_sex) muốn [chuyển khoản](service_name)
+    - mình muốn [chuyển khoản](service_name)
+    - tôi muốn [chuyển khoản](service_name)
+    - [chú](cust_sex) muốn [chuyển khoản](service_name)
+    - [bác](cust_sex) muốn [chuyển khoản](service_name)
+    - [cô](cust_sex) muốn [chuyển khoản](service_name)
+    - [chuyen khoan](service_name)
+    - [chuyển khoản](service_name)
+    - [chuyển tiền](service_name)
+    - [chuyển tiền](service_name) hộ mình
+    - [chuyen tien](service_name)
+    - tôi muộn gửi 2 triệu cho số tài khoản 12342823762376
+    - tao muốn [chuyển tiền](service_name)
+    - [chuyển](service_name) tiền cho [chị](cust_sex) với
+- intent: kh_cung_cap_so_tien_ck
+  examples: |
+    - [Chị](cust_sex) muốn [chuyển khoản](service_name) [18798798700000](cust_transfer_account_money)
+    - [Anh](cust_sex) muốn [chuyển khoản](service_name) [50024242353500](cust_transfer_account_money)
+    - [Em](cust_sex) muốn [chuyển khoản](service_name) [3003525235500](cust_transfer_account_money)
+    - mình muốn [chuyển khoản](service_name) [3035252350000](cust_transfer_account_money)
+    - tôi muốn [chuyển khoản](service_name) [40003525252500](cust_transfer_account_money)
+    - [chú](cust_sex) muốn [chuyển khoản](service_name) [72352350000](cust_transfer_account_money)
+    - [bác](cust_sex) muốn [chuyển khoản](service_name) [5023525500](cust_transfer_account_money)
+    - [cô](cust_sex) muốn [chuyển khoản](service_name) [1023552500000](cust_transfer_account_money)
+- intent: check_loan_max
+  examples: |
+    - [Chị](cust_sex) muốn [check hạn mức vay](service_name)
+    - [Anh](cust_sex) muốn [check hạn mức vay](service_name)
+    - [Em](cust_sex) muốn [check hạn mức vay](service_name)
+    - mình muốn [check hạn mức vay](service_name)
+    - tôi muốn [check hạn mức vay](service_name)
+    - [chú](cust_sex) muốn [check hạn mức vay](service_name)
+    - [bác](cust_sex) muốn [check hạn mức vay](service_name)
+    - [cô](cust_sex) muốn [check hạn mức vay](service_name)
+    - [Chị](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Anh](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Em](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - mình muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - tôi muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [chú](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [bác](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [cô](cust_sex) muốn [biết hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Chị](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Anh](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Em](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - mình muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - tôi muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [chú](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [bác](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [cô](cust_sex) muốn [xem hạn mức vay]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [anh](cust_sex) muốn [check hạn mức vay](service_name)
+    - [Chị](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Anh](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [Em](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - mình muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - tôi muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [chú](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [bác](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+    - [cô](cust_sex) muốn [Xem khoản vay tối đa]{"entity": "service_name", "value": "check h\u1ea1n m\u1ee9c vay"}
+- intent: loan_money
+  examples: |
+    - [Chị](cust_sex) muốn [vay tiền](service_name)
+    - [Anh](cust_sex) muốn [vay tiền](service_name)
+    - [Em](cust_sex) muốn [vay tiền](service_name)
+    - mình muốn [vay tiền](service_name)
+    - tôi muốn [vay tiền](service_name)
+    - [chú](cust_sex) muốn [vay tiền](service_name)
+    - [bác](cust_sex) muốn [vay tiền](service_name)
+    - [cô](cust_sex) muốn [vay tiền](service_name)
+- intent: affirm_has_account
+  examples: |
+    - [Em](cust_sex) có tài khoản rồi
+    - [Chị](cust_sex) có tài khoản rồi
+    - [Anh](cust_sex) có tài khoản rồi
+    - [chú](cust_sex) có tài khoản rồi
+    - [bác](cust_sex) có tài khoản rồi
+    - [cô](cust_sex) có tài khoản rồi
+    - Quý khách có tài khoản rồi
+    - đăng ký rồi
+    - đã đăng ký
+- intent: does_not_have_account
+  examples: |
+    - [Em](cust_sex) chưa có tài khoản
+    - [Chị](cust_sex) chưa có tài khoản
+    - [Anh](cust_sex) chưa có tài khoản
+    - [chú](cust_sex) chưa có tài khoản
+    - [bác](cust_sex) chưa có tài khoản
+    - [cô](cust_sex) chưa có tài khoản
+    - Quý khách chưa có tài khoản
+    - chưa đăng ký
+    - đã đăng ký đâu
+    - chưa đky bao giờ
+    - chưa đk
+- intent: cust_create_account_for_themselvess
+  examples: |
+    - [anh](cust_sex) muốn tạo tài khoản cho bản thân
+    - [chú](cust_sex) muốn tạo tài khoản cho bản thân
+    - [bác](cust_sex) muốn tạo tài khoản cho bản thân
+    - [chị](cust_sex) muốn tạo tài khoản cho bản thân
+    - [cô](cust_sex) muốn tạo tài khoản cho bản thân
+    - Quý khách muốn tạo tài khoản cho bản thân
+    - [1](number): [anh](cust_sex) muốn tạo tài khoản cho bản thân
+    - cho bản thân
+    - bản thân
+- intent: cust_create_account_for_others_person
+  examples: |
+    - [anh](cust_sex) muốn tạo tài khoản cho người khác
+    - [chú](cust_sex) muốn tạo tài khoản cho người khác
+    - [bác](cust_sex) muốn tạo tài khoản cho người khác
+    - [chị](cust_sex) muốn tạo tài khoản cho người khác
+    - [cô](cust_sex) muốn tạo tài khoản cho người khác
+    - Quý khách muốn tạo tài khoản cho người khác
+    - [2](number): [anh](cust_sex) muốn tạo tài khoản cho người khác
+- intent: cust_sign_in
+  examples: |
+    - [anh](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - [chú](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - [bác](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - [chị](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - [cô](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - [em](cust_sex) muốn [đăng nhập tài khoản](service_name)
+    - tôi muốn [đăng nhập tài khoản](service_name)
+    - mình muốn [đăng nhập tài khoản](service_name)
+    - [a](cust_sex) muốn [đăng ký tài khoản](service_name)
+    - [đăng nhập](service_name)
+    - dang nhap
+    - [đăg nhập](service_name)

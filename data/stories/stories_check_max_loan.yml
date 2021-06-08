@@ -1,0 +1,182 @@
+version: "2.0"
+stories:
+#check khoan vay toi da
+- story: interactive_story_8
+  steps:
+  - intent: check_loan_max
+    entities:
+    - service_name: check hạn mức vay
+  - slot_was_set:
+    - service_name: check hạn mức vay
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_cust_sign_in_false
+  - intent: deny
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: check loan max cust login
+  steps:
+  - intent: check_loan_max
+  - action: action_check_login
+  - slot_was_set:
+    - login: true
+  - action: action_check_loan_max
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: check loan max not login
+  steps:
+  - intent: check_loan_max
+  - action: action_check_login
+  - slot_was_set:
+    - login: false
+  - action: utter_ask_if_cust_want_to_sign_in
+  - checkpoint: check_loan_max_if_cust_want_to_sign_in
+- story: check loan max cust do not want to login
+  steps:
+  - checkpoint: check_loan_max_if_cust_want_to_sign_in
+  - intent: deny
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: check loan max cust want to login and login true
+  steps:
+  - checkpoint: check_loan_max_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Lê Đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - cmnd: 976734190
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - cust_account_number: 1549
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - login: true
+  - action: utter_cust_sign_in_success
+  - action: action_check_loan_max
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: interactive_story_9
+  steps:
+  - intent: check_loan_max
+    entities:
+    - service_name: check hạn mức vay
+  - slot_was_set:
+    - service_name: check hạn mức vay
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_cust_sign_in_false
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: 1114445556
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: 5723
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: lê đức thắng
+  - slot_was_set:
+    - cust_cmnd: '1114445556'
+  - slot_was_set:
+    - login: 'true'
+  - action: utter_cust_sign_in_success
+  - action: utter_ask_if_cust_want_to_do_anything_else
+  - intent: check_loan_max
+    entities:
+    - service_name: check hạn mức vay
+  - slot_was_set:
+    - service_name: check hạn mức vay
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'true'
+  - action: action_check_loan_max
+  - action: utter_ask_if_cust_want_to_do_anything_else
+- story: interactive_story_10
+  steps:
+  - intent: ask_service_name
+  - action: action_list_service_name
+  - intent: check_balance_account
+  - action: action_check_login
+  - slot_was_set:
+    - login: 'false'
+  - action: utter_ask_if_cust_want_to_sign_in
+  - intent: cust_sign_in
+  - action: action_reset_account
+  - slot_was_set:
+    - cust_name: null
+  - slot_was_set:
+    - cust_cmnd: null
+  - slot_was_set:
+    - cust_account_number: null
+  - slot_was_set:
+    - name: null
+  - slot_was_set:
+    - cmnd: null
+  - action: cust_sign_in
+  - active_loop: cust_sign_in
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - name: lê đức thắng
+  - slot_was_set:
+    - requested_slot: cmnd
+  - slot_was_set:
+    - number: 1114445556
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - cmnd: '1114445556'
+  - slot_was_set:
+    - requested_slot: cust_account_number
+  - slot_was_set:
+    - number: 5723
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - cust_account_number: '5723'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_login
+  - slot_was_set:
+    - cust_name: lê đức thắng
+  - slot_was_set:
+    - cust_cmnd: '1114445556'
+  - slot_was_set:
+    - login: 'true'
+  - action: utter_cust_sign_in_success
+  - action: action_check_loan_max
+  - action: utter_ask_if_cust_want_to_do_anything_else
