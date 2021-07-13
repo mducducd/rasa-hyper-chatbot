@@ -267,9 +267,9 @@ responses:
     text: STK {cust_account_number} chuyển khoản tới {receive_transfer_account_number} số tiền {credit} đồng. Mời {cust_sex} xác nhận.
   utter_ask_who_cust_create_account_for:
   - buttons:
-    - payload: /cust_create_account_for_themselvess
+    - payload: '/cust_create_account_for_themselvess'
       title: '{cust_sex} muốn tạo tài khoản cho bản thân'
-    - payload: /cust_create_account_for_others_person
+    - payload: '/cust_create_account_for_others_person'
       title: '{cust_sex} muốn tạo tài khoản cho người khác'
     text: '{cust_sex} muốn tạo tài khoản cho ai ạ ? {cust_sex} vui lòng chọn 1 trong 2 trường hợp sau ạ'
 actions:

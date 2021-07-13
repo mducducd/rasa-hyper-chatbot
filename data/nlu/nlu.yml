@@ -364,6 +364,7 @@ nlu:
     - time
     - giờ
     - mấy giờ rồi
+    - may h roi
 - intent: stop
   examples: |
     - Dừng
