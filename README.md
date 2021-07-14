@@ -29,9 +29,10 @@ add VietnameseTokenizer into component_classes
 mysql structure:
 ```
     sql = 'create table services(service VARCHAR(255));' \
+          'ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;'\
           'INSERT INTO services(service) VALUES("Đăng ký tài khoản");' \
           'INSERT INTO services(service) VALUES("Xem số dư tài khoản");' \
           'INSERT INTO services(service) VALUES("Xem số dư tài khoản");' \
           'INSERT INTO services(service) VALUES("Chuyển khoản");' \
-          'CREATE TABLE accounts (name VARCHAR(255), cmnd VARCHAR(255) , account_number VARCHAR(255),balance INT, PRIMARY KEY(account_number));' \
+          'CREATE TABLE accounts (full_name VARCHAR(255), id_card VARCHAR(255) , account_number VARCHAR(255),balance INT, PRIMARY KEY(account_number));' \
 ```
